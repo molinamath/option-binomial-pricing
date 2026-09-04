@@ -31,4 +31,4 @@ class Portfolio:
         self.delta = Portfolio.CalculateDelta(up, down)
         return self.delta
 
-Portolio = Portfolio
+Portfolio = Portfolio

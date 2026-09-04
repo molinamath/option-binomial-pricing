@@ -7,6 +7,7 @@ from option_binomial_pricing.Entities.types import OptionType
 class Option:
     strike: float
     type: OptionType
+    price: float = 0
 
     def ShouldExert(self, stockPrice: float) -> bool:
         if self.type == "put":
@@ -21,4 +22,4 @@ class Option:
         return abs(self.strike - stockPrice)
 
 
-Optiton = Option
+Option = Option
