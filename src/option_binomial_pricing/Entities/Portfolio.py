@@ -22,5 +22,13 @@ class Portfolio:
         
         return stockMultiplier * self.stock.price * self.delta - optionMultiplier * self.option.OptionPrice(self.stock.price)
 
+    def CalculateDelta(up: "Portfolio", down: "Portfolio") -> float:
+        return (up.option.OptionPrice(up.stock.price) - down.option.OptionPrice(down.stock.price)) / (up.stock.price - down.stock.price)
+    
+    def SetDelta(self, up: "Portfolio", down: "Portfolio") -> float:
+        if(up is None or down is None):
+            return 0
+        self.delta = Portfolio.CalculateDelta(up, down)
+        return self.delta
 
 Portolio = Portfolio
